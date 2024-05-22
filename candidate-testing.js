@@ -30,7 +30,7 @@ for (index = 0; index < questions.length; index++) {
 
     const candidateResponse = input.question("Enter your answer: ");
     candidateAnswers.push(candidateResponse);
-    
+
     }
 };
 //console.log(candidateAnswers);
@@ -41,7 +41,16 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-  console.log(`Your answers: ${candidateAnswers.join(", ")}. The correct answers are: ${correctAnswers}.`);
+  //console.log(`Your answers: ${candidateAnswers.join(", ")}. The correct answers are: ${correctAnswers}.`);
+  // console.log(`When asked "${questions[0]}" you answered: ${candidateAnswers[0]}. The correct answer is: ${correctAnswers[0]}.`);
+  // console.log(`When asked "${questions[1]}" you answered: ${candidateAnswers[1]}. The correct answer is: ${correctAnswers[1]}.`);
+  // console.log(`When asked "${questions[2]}" you answered: ${candidateAnswers[2]}. The correct answer is: ${correctAnswers[2]}.`);
+  // console.log(`When asked "${questions[3]}" you answered: ${candidateAnswers[3]}. The correct answer is: ${correctAnswers[3]}.`);
+  // console.log(`When asked "${questions[4]}" you answered: ${candidateAnswers[4]}. The correct answer is: ${correctAnswers[4]}.`);
+
+  for (index = 0; index < questions.length; index++) {
+    console.log(`When asked "${questions[index]}" you answered: ${candidateAnswers[index]}. The correct answer is: ${correctAnswers[index]}.`);
+  }
 
   //display each answer along with the correct answer using a template literal
   //"When asked [question] you answered:  . The correct answer is:   ."
