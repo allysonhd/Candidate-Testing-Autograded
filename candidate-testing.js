@@ -16,9 +16,7 @@ let questions = ["Who was the first American woman in space? ", "True or false: 
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
-
-function askForName()
- {
+function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 candidateName = input.question("Enter your name: ");
 }
@@ -30,46 +28,49 @@ for (index = 0; index < questions.length; index++) {
 
     const candidateResponse = input.question("Enter your answer: ");
     candidateAnswers.push(candidateResponse);
-
-    }
+  }
 };
-//console.log(candidateAnswers);
-//ask each question and get a response before moving on to the next question.
-//start at the first question - ask it, get a response, store the response, Ask the next question
+// console.log(candidateAnswers);
 
 function gradeQuiz(candidateAnswers) {
+let grade;
+let numberOfCorrectAnswers = 0;
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly 
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+    console.log("\n" + `Candidate Name: ${candidateName} \n`);
 
-  //console.log(`Your answers: ${candidateAnswers.join(", ")}. The correct answers are: ${correctAnswers}.`);
-  // console.log(`When asked "${questions[0]}" you answered: ${candidateAnswers[0]}. The correct answer is: ${correctAnswers[0]}.`);
-  // console.log(`When asked "${questions[1]}" you answered: ${candidateAnswers[1]}. The correct answer is: ${correctAnswers[1]}.`);
-  // console.log(`When asked "${questions[2]}" you answered: ${candidateAnswers[2]}. The correct answer is: ${correctAnswers[2]}.`);
-  // console.log(`When asked "${questions[3]}" you answered: ${candidateAnswers[3]}. The correct answer is: ${correctAnswers[3]}.`);
-  // console.log(`When asked "${questions[4]}" you answered: ${candidateAnswers[4]}. The correct answer is: ${correctAnswers[4]}.`);
-
-  for (index = 0; index < questions.length; index++) {
-    console.log(`When asked "${questions[index]}" you answered: ${candidateAnswers[index]}. The correct answer is: ${correctAnswers[index]}.`);
-  }
-
+     for (index = 0; index < questions.length; index++) {
+     console.log(index + 1 + ") " + `${questions[index]} \n Your answer: ${candidateAnswers[index]} \n Correct answer: ${correctAnswers[index]} \n`);
+     }
+      for (let indexj = 0; indexj < questions.length; indexj++) {
+       if (candidateAnswers[indexj].toLowerCase() === correctAnswers[indexj].toLowerCase()) {
+          numberOfCorrectAnswers += 1;
+       }
+       grade = (numberOfCorrectAnswers) / (questions.length) * 100;
+     } 
+     console.log(`>>> Overall Grade: ${grade}% (${numberOfCorrectAnswers} of ${questions.length} responses correct) <<<`);
+        if (grade < 80) {
+          console.log(">>> Status: FAILED");
+        } else {
+          console.log(">>> Status: PASSED");
+        }
+        return grade;
+    };
+  
   //display each answer along with the correct answer using a template literal
-  //"When asked [question] you answered:  . The correct answer is:   ."
 
+//let grade;  //TODO 3.2 use this variable to calculate the candidates score
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
-  return grade;
-}
 
 function runProgram() {
   askForName();
+
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Hello" + candidateName);
+   console.log("Hello " + candidateName);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
+
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
