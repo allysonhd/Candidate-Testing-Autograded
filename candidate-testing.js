@@ -50,9 +50,9 @@ let numberOfCorrectAnswers = 0;
      } 
      console.log(`>>> Overall Grade: ${grade}% (${numberOfCorrectAnswers} of ${questions.length} responses correct) <<<`);
         if (grade < 80) {
-          console.log(">>> Status: FAILED");
+          console.log(">>> Status: FAILED <<<");
         } else {
-          console.log(">>> Status: PASSED");
+          console.log(">>> Status: PASSED <<<");
         }
         return grade;
     };
