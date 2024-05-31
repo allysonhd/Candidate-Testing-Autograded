@@ -39,11 +39,10 @@ let numberOfCorrectAnswers = 0;
 
     console.log("\n" + `Candidate Name: ${candidateName} \n`);
 
-     for (index = 0; index < questions.length; index++) {
+     for (let index = 0; index < questions.length; index++) {
      console.log(index + 1 + ") " + `${questions[index]} \n Your answer: ${candidateAnswers[index]} \n Correct answer: ${correctAnswers[index]} \n`);
-     }
-      for (let indexj = 0; indexj < questions.length; indexj++) {
-       if (candidateAnswers[indexj].toLowerCase() === correctAnswers[indexj].toLowerCase()) {
+     
+       if (candidateAnswers[index].toLowerCase() === correctAnswers[index].toLowerCase()) {
           numberOfCorrectAnswers += 1;
        }
        grade = (numberOfCorrectAnswers) / (questions.length) * 100;
